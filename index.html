@@ -1065,9 +1065,6 @@ function drawMachine(cv){
  sideDrum(1,95,720,.55);sideDrum(-1,1063,720,.55);
  // guias do fio (amarelas)
  [[245,832],[913,832]].forEach(([x,y])=>{ctx.fillStyle='#f0e000';ctx.fillRect(x-40,y-36,80,72);ctx.strokeStyle='#8a7d00';ctx.lineWidth=3;ctx.strokeRect(x-40,y-36,80,72);ctx.fillStyle='#3d4247';ctx.beginPath();ctx.arc(x,y,24,0,TAU);ctx.fill();spoke(x,y,22,4,'#9aa0a5',4)});
- // pilha de fios vistos de frente
- const strand=(x0,x1)=>{for(let y=735;y<=880;y+=16){ctx.strokeStyle='#2a2c30';ctx.lineWidth=3.5;ctx.beginPath();ctx.moveTo(x0,y);ctx.lineTo(x1,y);ctx.stroke();ctx.setLineDash([6,5]);ctx.lineDashOffset=-V.phase*2;ctx.strokeStyle='#d8ae2f';ctx.lineWidth=2.2;ctx.stroke();ctx.setLineDash([])}};
- strand(330,380);strand(785,836);
  // fio diamantado principal
  const path=()=>{ctx.beginPath();ctx.moveTo(375,880);ctx.quadraticCurveTo(580,880-2*bowI,785,880);ctx.lineTo(905,848);ctx.lineTo(1010,640);ctx.lineTo(1050,600);ctx.lineTo(742,290);ctx.lineTo(418,290);ctx.lineTo(108,600);ctx.lineTo(150,640);ctx.lineTo(255,848);ctx.closePath()};
  const wire=(w1,w2,dash)=>{ctx.lineJoin='round';ctx.setLineDash([]);ctx.lineWidth=w1;ctx.strokeStyle='#33353a';path();ctx.stroke();ctx.setLineDash(dash);ctx.lineDashOffset=-V.phase*2;ctx.lineWidth=w2;ctx.strokeStyle='#e0b530';path();ctx.stroke();ctx.setLineDash([]);ctx.lineDashOffset=0};
